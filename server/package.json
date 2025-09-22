@@ -1,0 +1,73 @@
+{
+  "name": "auto-parts-server",
+  "version": "1.0.0",
+  "description": "نظام إدارة قطع غيار السيارات - الخادم",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --exec tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:dev": "tsx src/index.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:migrate:prod": "prisma migrate deploy",
+    "prisma:migrate:reset": "prisma migrate reset --force",
+    "prisma:studio": "prisma studio",
+    "prisma:seed": "tsx prisma/seed.ts",
+    "db:push": "prisma db push",
+    "db:pull": "prisma db pull",
+    "db:reset": "prisma migrate reset --force && npm run prisma:seed",
+    "db:setup": "npm run prisma:generate && npm run prisma:migrate && npm run prisma:seed",
+    "db:create": "createdb GearSystem || echo 'Database may already exist'",
+    "db:drop": "dropdb GearSystem || echo 'Database may not exist'",
+    "db:status": "prisma migrate status",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.4.7",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "express-validator": "^7.0.1",
+    "compression": "^1.7.4",
+    "express-rate-limit": "^7.1.5",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "prisma": "^5.7.1",
+    "typescript": "^5.3.3",
+    "tsx": "^4.6.2",
+    "nodemon": "^3.0.2",
+    "@types/node": "^20.10.5",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/compression": "^1.7.5",
+    "@types/morgan": "^1.9.9",
+    "@types/multer": "^1.4.11",
+    "@types/pg": "^8.10.9",
+    "@types/uuid": "^9.0.7"
+  },
+  "keywords": [
+    "auto-parts",
+    "inventory",
+    "nodejs",
+    "typescript",
+    "express",
+    "prisma",
+    "arabic"
+  ],
+  "author": "فريق تطوير نظام قطع الغيار",
+  "license": "MIT"
+}
+
